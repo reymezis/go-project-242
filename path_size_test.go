@@ -19,7 +19,7 @@ func TestGetSize(t *testing.T) {
 
 	expectedSize = fileInfo.Size()
 	expectedResult := fmt.Sprintf("%dB %s", expectedSize, path)
-	actualResult, _ := GetSize(path, false, false, false)
+	actualResult, _ := GetPathSize(path, false, false, false)
 
 	require.Equal(t, expectedResult, actualResult, "File size should match")
 }
@@ -35,7 +35,7 @@ func TestGetSizeHumanFormat(t *testing.T) {
 	expectedSize = fileInfo.Size()
 	expectedHumanFormat := FormatSize(expectedSize, true)
 	expectedResult := fmt.Sprintf("%s %s", expectedHumanFormat, path)
-	actualResult, _ := GetSize(path, true, false, false)
+	actualResult, _ := GetPathSize(path, true, false, false)
 
 	require.Equal(t, expectedResult, actualResult, "File size with human format should match")
 }
@@ -57,7 +57,7 @@ func TestGetSizeWithHiddenFiles(t *testing.T) {
 
 	expectedHumanFormat := FormatSize(expectedSize, true)
 	expectedResult := fmt.Sprintf("%s %s", expectedHumanFormat, path)
-	actualResult, _ := GetSize(path, true, true, false)
+	actualResult, _ := GetPathSize(path, false, true, true)
 
 	require.Equal(t, expectedResult, actualResult, "Size with hide files should match")
 }
