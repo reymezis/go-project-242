@@ -50,8 +50,7 @@ func GetPathSize(path string, recursive, human, all bool) (string, error) {
 		return "", err
 	}
 	formatedSize := FormatSize(size, human)
-	result := fmt.Sprintf("%s %s", formatedSize, path)
-	return result, nil
+	return formatedSize, nil
 }
 
 func FormatSize(size int64, human bool) string {

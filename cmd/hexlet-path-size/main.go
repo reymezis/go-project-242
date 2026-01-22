@@ -43,8 +43,9 @@ func main() {
 			if err != nil {
 				fmt.Println(err)
 			}
+			output := fmt.Sprintf("%s %s", result, path)
 
-			fmt.Println(result)
+			fmt.Println(output)
 
 			return nil
 		},
